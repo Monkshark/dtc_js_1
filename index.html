@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>DTC2024 JavaScript 강의</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/agate.min.css">
+  <link rel="icon" href="data:image/png;base64,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">
+</head>
+
+<script type="module" src="main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+
+<body>
+<div class="reveal">
+  <div class="slides">
+    <section data-transition="zoom">
+      <h1>JavaScript 1강</h1>
+      <p>2024DTC 추희도</p>
+    </section>
+
+    <section data-transition="convex">
+      <section>JavaScript란? <br/></section>
+      <section>JavaScript란? <br/><br/> 웹 프로젝트의 두뇌라고 할수 있으며, <br/>JavaScript만을 이용해서 웹 프로젝트를 구현할수도 있다</section>
+      <section>JavaScript란? <br/><br/> 진입점이 없고 class문법이 선택적이라<br/>처음으로 배우기 가장 좋은 프로그래밍 언어<br/>(부장피셜)</section>
+    </section>
+
+
+    <section data-transition="convex">
+      <section>1. 변수 & 타입</section>
+
+      <section>
+        <pre><code>변수선언키워드 변수이름 = 변숫값</code></pre>
+      </section>
+
+      <section>
+        <pre><code>var</code><code>let</code><code>const</code></pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">var name = '변수1';</code><code class="javascript">let name = '변수2';</code><code class="javascript">const name = "변수3";</code></pre>
+      </section>
+
+      <section>
+        자주쓰는 타입의 종류
+      </section>
+
+      <section>
+        자주쓰는 타입의 종류<br/>
+        number, boolean, BigInt, string, object, undefined
+      </section>
+
+      <section>
+        <pre><code>
+          typeof 1; // 'number'
+
+          typeof 0.7; // 'number'
+
+          typeof "문자열"; // 'string'
+
+          typeof true; // 'boolean'
+
+          typeof BigInt("0x1fffffffffffff"); // 'bigint'
+
+          typeof { K: 'V' } // 'object'
+
+          typeof variable; // 'undefined'
+        </code></pre>
+      </section>
+    </section>
+
+    <section data-transition="convex">
+      <section>2. 비교</section>
+
+      <section>자주 쓰는 비교연산자의 종류</section>
+
+      <section> =, &lt;, &gt;, ≤, ≥, ≠</section>
+
+      <section> ==, &lt;, &gt;, &lt;=, &gt;=, !=</section>
+
+      <section>
+        <pre><code class="javascript">
+          let result1 = 10 &gt; 7;
+
+          let result2 = 10 &lt; 7;
+
+          let result3 = 10 == 7;
+
+          let result4 = 10 != 7;
+
+          let result5 = 10 &gt;= 7;
+
+          let result6 = 10 &lt;= 7;
+        </code></pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+          let result1 = 10 &gt; 7; // true
+
+          let result2 = 10 &lt; 7; // false
+
+          let result3 = 10 == 7; // false
+
+          let result4 = 10 != 7; // true
+
+          let result5 = 10 &gt;= 7; // true
+
+          let result6 = 10 &lt;= 7; // false
+        </code></pre>
+      </section>
+
+      <section>===</section>
+
+      <section>
+        let result1 = 1 == true;
+        let result2 = 3 == "3";
+      </section>
+
+      <section>
+        let result1 = 1 == true; // true
+        let result2 = 3 == "3"; // true
+      </section>
+
+      <section>
+        let result1 = 1 === true;
+        let result2 = 3 === "3";
+      </section>
+
+      <section>
+        let result1 = 1 === true; // true
+        let result2 = 3 === "3"; // true
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+          let result1 = typeof 10 == 'number'; // true
+
+          let result2 = typeof true == 'boolean'; // true
+        </code></pre>
+      </section>
+
+      <section>&&, ||, ^, !</section>
+
+      <section>&& and 연산자<pre><code class="javascript">
+        false && false; // false
+        false && true; // false
+        true && false // false
+        true && true // true
+      </code></pre></section>
+
+      <section>|| or 연산자<pre><code class="javascript">
+        false || false; // false
+        false || true; // true
+        true || false // true
+        true || true // true
+      </code></pre></section>
+
+      <section>^ xor 연산자 <pre><code class="javascript">
+        false ^ false; // false
+        false ^ true; // true
+        true ^ false // true
+        true ^ true // false
+      </code></pre></section>
+
+      <section>! not 연산자 <pre><code class="javascript">
+        !false; // true
+        !true; // false
+      </code></pre></section>
+
+    </section>
+
+    <section data-transition="convex">
+      <section>3. 수학 및 계산</section>
+
+      <section>자주 쓰는 계산 문법</section>
+
+      <section>+, -, *, /</section>
+
+      <section>
+        <pre><code class="javascript">
+          let a = 10;
+          a = 5 + 7;
+          a = a + 5;
+        </code></pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+          let a = 10; // 10
+          a = 5 + 7; // 12
+          a = a + 5; // 17
+        </code></pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+          let a = 10; // 10
+          a = 5 + 7; // 12
+          a += 5 // a = a + 5
+        </code></pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+          let a = 1, b = 2, c = 3, d = 4;
+          a += 3;
+          b -= 5;
+          c *= 3;
+          d /= 2;
+        </code></pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+          let a = 1, b = 2, c = 3, d = 4;
+          a += 3; // 4
+          b -= 5; // -3
+          c *= 3; // 9
+          d /= 2; // 2
+        </code></pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+          let a = 1;
+
+          a++; // 1
+          a; // 2
+
+          ++a; // 3
+          a; // 3
+        </code></pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+          let a = 5;
+
+          a-- // 5
+          a // 4
+
+          --a // 3
+          a // 3
+        </code></pre>
+      </section>
+
+      <section>
+        Math 클래스
+      </section>
+
+      <section>
+        Math 클래스<br/>
+        number 타입에만 사용할수 있음(BigInt 안됨)
+      </section>
+
+      <section>
+        Math 클래스 상수
+        <pre><code class="javascript">
+          Math.E; // 자연상수, 약 2.718
+          Math.LN2; // 2의 자연로그, 약 0.693
+          Math.LN10; // 10의 자연로그, 약 2.303
+          Math.LOG2E; // 밑이 2인 로그 E, 약 1.443
+          Math.LOG10E; // 밑이 10인 로그 E, 약 0.434
+          Math.PI; // π, 약 3.1415
+          Math.SQRT1_2; // 1/2의 제곱근, 약 0.707
+          Math.SQRT2; // 2의 제곱근, 약 1.414
+        </code></pre>
+      </section>
+
+      <section>
+        Math 클래스 함수
+        <pre><code class="javascript">
+          Math.abs(x); // 파라미터의 절댓값 반환
+          Math.cbrt(x); // 파라미터의 세제곱근 반환
+          Math.ceil(x); // 파라미터의 소숫점 올림값을 반환
+          Math.trunc(x); // 파라미터의 소숫점 내림값을 반환
+          Math.max([x, y...]); // 파라미터중 가장 큰 값을 반환
+          Math.min([x, y...]); // 파라미터중 가장 작은 값을 반환
+          Math.pow(x, y); // x^y를 반환
+          Math.random(); // 0과 1 사이의 수 중 난수 하나를 반환
+          Math.sqrt(x); // 파라미터의 제곱근을 반환
+          Math.round(x); //파라미터의 반올림값을 반환
+          Math.sin(x); Math.cos(x); Math.tan(x);
+          /** 파라미터의 각각의 sin, cos, tan값을 반환 */
+        </code></pre>
+      </section>
+    </section>
+
+    <section data-transition="convex">
+      <section>4. 배열</section>
+
+      <section>
+        <pre><code class="javascript">
+          let Array = ['Value1', 'Value2', 'Value3'];
+        </code></pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+          let Array = ['Value1', 'Value2', 'Value3'];
+          Array[0];
+          Array[1];
+          Array[2];
+          Array[3];
+        </code></pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+          let Array = ['Value1', 'Value2', 'Value3'];
+          Array[0]; // "Value1"
+          Array[1]; // "Value2"
+          Array[2]; // "Value3"
+          Array[3]; // undefined
+        </code></pre>
+      </section>
+
+    </section>
+
+    <section data-transition="convex">
+      <section>5. Object</section>
+
+      <section>
+        <pre><code class="javascript">
+          let Object = { Key: "Value" };
+
+          Object.Key; // "Value"
+        </code></pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+          let Teacher = {
+            정보: "윤경t",
+            한국사: "영은t",
+          };
+
+          Teacher.정보;
+          Teacher.한국사;
+        </code></pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+          let Teacher = {
+            정보: "윤경t",
+            한국사: "영은t",
+          };
+
+          Teacher.정보; // "윤경t"
+          Teacher.한국사; // "영은t"
+        </code></pre>
+      </section>
+    </section>
+
+    <section data-transition="convex">
+      <section>6. if & else</section>
+      <section>
+        <pre><code class="javascript">
+          if () // 대상인자가 true일때 실행할 코드 작성
+        </code></pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+          if (true) console.log("arg is true");
+          if (false) console.log("arg is not true");
+
+          // 결과: arg is true
+        </code></pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+          if (true)
+            console.log("message1");
+            console.log("message2");
+        </code></pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+          if (true)
+            console.log("message1");
+            console.log("message2");
+
+          // 결과: message1
+        </code></pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+          if (true) {
+            console.log("message1");
+            console.log("message2");
+          }
+
+          // 결과:
+          // message1
+          // message2
+        </code></pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+          if (true) { // &lt;-- 코드의 객체화임
+            console.log("message1");
+            console.log("message2");
+          }
+
+          // 결과:
+          // message1
+          // message2
+        </code></pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+          let a = 1;
+
+          if (a == 0) {
+            console.log("message0");
+          }
+
+          if (a == 1) {
+            console.log("message1");
+          }
+
+          // 결과: message1
+        </code></pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+          let a = 0;
+
+          if (a == 0) {
+            console.log("message0");
+
+          } else if (a == 1) {
+            console.log("message1");
+          }
+
+          // 결과: message1
+        </code></pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+          let a = 0;
+
+          if (a == 0) {
+            console.log("message0");
+          }
+
+          if (a == 1) {
+            console.log("message1");
+          }
+
+          // 결과: message0
+        </code></pre>
+      </section>
+
+
+      <section>
+        <pre><code class="javascript">
+          let a = 0;
+
+          if (a == 0) {
+            console.log("message0");
+
+          } else if (a == 1) {
+            console.log("message1");
+          }
+
+          // 결과: message0
+        </code></pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+          let a = 1;
+
+          if (a == true) {
+            console.log("if문 실행됨 ㅅㄱ");
+          }
+
+          // 결과: message0
+        </code></pre>
+      </section>
+    </section>
+
+    <section data-transition="convex">
+      <section>7. switch-case</section>
+      <section><pre><code class="javascript">
+        let a = 1;
+
+        switch (a) {
+          case 0:
+            console.log(0);
+          case 1:
+            console.log(1);
+          case 2:
+            console.log(2);
+          default:
+            console.log("일치하는 값이없음 ㅠㅠ");
+        }
+      </code></pre></section>
+
+      <section><pre><code class="javascript">
+        let a = 1;
+
+        switch (a) {
+          case 0:
+            console.log(0);
+          case 1:
+            console.log(1);
+          case 2:
+            console.log(2);
+          default:
+            console.log("일치하는 값이없음 ㅠㅠ");
+        }
+        // 결과: 1
+      </code></pre></section>
+
+    </section>
+
+    <section data-transition="convex">
+      <section>8. for 반복문</section>
+      <section><pre><code class="javascript">
+        for (스코프변수선언; 조건; 변수값증감) { }
+      </code></pre></section>
+
+      <section><pre><code class="javascript">
+        for (let i = 0; i &lt; 10; i++) console.log("${i}번");
+
+        // 결과: 0번1번2번3번4번5번6번7번8번9번
+      </code></pre></section>
+
+    </section>
+
+    <section data-transition="convex">
+      <section>8. while 반복문</section>
+      <section><pre><code class="javascript">
+        while (조건) { }
+      </code></pre></section>
+
+      <section><pre><code class="javascript">
+        while (true) {
+          console.log("실행");
+        }
+      </code></pre></section>
+
+      <section><pre><code class="javascript">
+        while (true) {
+          console.log("실행");
+        }
+        //결과: 실행실행실행실행실행실행...
+      </code></pre></section>
+
+      <section><pre><code class="javascript">
+        while (false) {
+          console.log("실행");
+        }
+        //결과:
+      </code></pre></section>
+    </section>
+
+    <section data-transition="convex">
+      <section>9. do-while 반복문</section>
+
+      <section><pre><code class="javascript">
+        do {
+          console.log("실행됨 ㅋ");
+        } while (true);
+
+        // 결과: 실행됨 ㅋ실행됨 ㅋ...
+      </code></pre></section>
+
+      <section><pre><code class="javascript">
+        do {
+          console.log("실행됨 ㅋ");
+        } while (false);
+
+        // 결과: 실행됨 ㅋ
+      </code></pre></section>
+
+    </section>
+
+    <section data-transition="convex">
+      <section>10. break, continue</section>
+      <section><pre><code class="javascript">
+        for (int i = 0; i &lt; 10; i++) {
+          if (i == 6)
+            break;
+          console.log("${i} ");
+        }
+      </code></pre></section>
+
+      <section><pre><code class="javascript">
+        for (int i = 0; i &lt; 10; i++) {
+          if (i == 6)
+            break;
+          console.log("${i} ");
+        }
+
+        //결과: 0 1 2 3 4 5
+      </code></pre></section>
+
+      <section><pre><code class="javascript">
+        for (int i = 0; i &lt; 10; i++) {
+          if (i == 6)
+            continue;
+          console.log("${i} ");
+        }
+      </code></pre></section>
+
+      <section><pre><code class="javascript">
+        for (int i = 0; i &lt; 10; i++) {
+          if (i == 6)
+            continue;
+          console.log("${i} ");
+        }
+
+        // 결과: 0 1 2 3 4 5 7 8 9
+      </code></pre></section>
+    </section>
+
+    <section data-transition="convex">
+      <section>11. 함수</section>
+      <section>함수만드는법1: <br><pre><code class="javascript">
+        function 함수이름(인자) {
+          //함수내용
+        }
+      </code></pre></section>
+
+      <section>함수만드는법1: <br><pre><code class="javascript">
+        function 함수이름(인자) {
+          //함수내용
+        }
+      </code></pre>
+      특징: 함수의모든이점을 다갖고있음
+      </section>
+
+      <section>함수만드는법1: <br><pre><code class="javascript">
+        function 함수이름(인자) {
+          //함수내용
+        }
+      </code></pre>
+        특징: 함수의모든이점을 다갖고있음<br/>
+        1. 호이스팅
+      </section>
+
+      <section>함수만드는법1: <br><pre><code class="javascript">
+        function 함수이름(인자) {
+          //함수내용
+        }
+      </code></pre>
+        특징: 함수의모든이점을 다갖고있음<br/>
+        1. 호이스팅<br/>
+        2. this 바인딩 사용 가능
+      </section>
+
+      <section>함수만드는법1: <br><pre><code class="javascript">
+        function 함수이름(인자) {
+          //함수내용
+        }
+      </code></pre>
+        특징: 함수의모든이점을 다갖고있음<br/>
+        1. 호이스팅<br/>
+        2. this 바인딩 사용 가능<br/>
+        3. arguments 객체 사용가능
+      </section>
+
+      <section>함수만드는법1: <br><pre><code class="javascript">
+        function 함수이름(인자) {
+          //함수내용
+        }
+      </code></pre>
+        특징: 함수의모든이점을 다갖고있음<br/>
+        1. 호이스팅<br/>
+        2. this 바인딩 사용 가능<br/>
+        3. arguments 객체 사용가능<br/>
+        4. 디버깅시 StackTrace 사용가능
+      </section>
+
+      <section>함수만드는법1: <br><pre><code class="javascript">
+        function 함수이름(인자) {
+          //함수내용
+        }
+      </code></pre>
+        특징: 함수의모든이점을 다갖고있음<br/>
+        1. 호이스팅<br/>
+        2. this 바인딩 사용 가능<br/>
+        3. arguments 객체 사용가능<br/>
+        4. 디버깅시 StackTrace 사용가능<br/>
+        5. new로 함수 객체 생성 가능
+      </section>
+
+
+      <section>함수만드는법2: <br><pre><code class="javascript">
+        const 함수이름 = function(인자) {
+          //함수내용
+        }
+      </code></pre></section>
+
+      <section>함수만드는법2: <br><pre><code class="javascript">
+        const 함수이름 = function(인자) {
+          //함수내용
+        }
+      </code></pre>
+        특징: 이점 한개 있음
+      </section>
+
+      <section>함수만드는법2: <br><pre><code class="javascript">
+        const 함수이름 = function(인자) {
+          //함수내용
+        }
+      </code></pre>
+      특징: 이점 한개 있음<br/>
+      1. this 바인딩 사용 가능
+      </section>
+
+      <section>함수만드는법3: <br><pre><code class="javascript">
+        const 함수이름 = (인자) => {
+          //함수내용
+        }
+      </code></pre>
+      특징:
+      </section>
+
+      <section>함수만드는법3: <br><pre><code class="javascript">
+        const 함수이름 = (인자) => {
+          //함수내용
+        }
+      </code></pre>
+        특징: 간지개쩜
+      </section>
+
+    </section>
+
+  </div>
+</div>
+<script type="module" src="/main.js"></script>
+</body>
+</html>
