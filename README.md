@@ -7,4 +7,4 @@ npm i --force
 ```
 npm run dev
 ```
-실행
+실행하면 강의 자료를 볼 수 있습니다
